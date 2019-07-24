@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 public class Computer {
 
+    private String id;
     private String name;
     private LocalDate introduced;
     private LocalDate discontinued;
@@ -52,5 +53,17 @@ public class Computer {
                 "&introduced=" + introduced +
                 "&discontinued=" + discontinued +
                 "&company=" + company ;
+    }
+    
+//    public String toStringg() {
+//        return "id=" + id ;
+//    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
