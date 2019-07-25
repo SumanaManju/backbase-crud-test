@@ -1,14 +1,9 @@
 package com.automated.create;
 
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+
+import java.io.IOException;
 
 public class CreateComputer {
 
@@ -16,20 +11,13 @@ public class CreateComputer {
 
     public void createComputer(Computer computer) throws IOException {
     	
-    	System.out.println("\nSending 'POST' request to URL : " + URL);
+    	System.out.println("Creating computer with to URL : " + URL + "\n");
     	Document doc = Jsoup.connect(URL)
 				.data("name", computer.getName())
 				.data("introduced",computer.getIntroduced().toString())
 				.data("discontinued",computer.getDiscontinued().toString())
 				.data("company",computer.getCompany()+"")
 				.post();
-				//System.out.println(doc);
-
-    	
-    	
-        
-        
-
     }
 
 }

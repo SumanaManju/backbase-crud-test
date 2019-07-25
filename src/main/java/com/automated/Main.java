@@ -18,11 +18,18 @@ public class Main {
         DeleteComputer deleteComputer = new DeleteComputer();
         UpdateComputer updateComputer = new UpdateComputer();
         try {
+            // create a computer, then verify if it's there
             Computer computer = mockComputer();
             createComputer.createComputer(computer);
             readComputer.readComputer(computer);
-            deleteComputer.deleteComputer(computer);
+
+            // change some values on the computer, verify if they changed
             updateComputer.updateComputer(computer);
+            readComputer.readComputer(computer);
+
+            // Delete the computer afterwards and verify that the computer is not there
+            deleteComputer.deleteComputer(computer);
+            readComputer.readComputer(computer);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -33,7 +40,7 @@ public class Main {
         computer.setCompany(1);
         computer.setDiscontinued(LocalDate.of(1991,10, 23));
         computer.setIntroduced(LocalDate.of(2001,10, 23));
-        computer.setName("xyz");
+        computer.setName("Macintosh128K");
         return computer;
     }
 

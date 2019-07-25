@@ -1,7 +1,6 @@
 package com.automated.read;
 
 import com.automated.create.Computer;
-//import com.sun.tools.javac.util.Assert;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -26,11 +25,20 @@ public class ReadComputer {
 			Element row = rows.get(i);
 			Elements cols = row.select("td");
 			String id = cols.get(0).getAllElements().get(0).child(0).attr("href").substring(11);
-			String name = cols.get(0).getAllElements().get(0).child(0).html();
-			//Assert.assertEquals(computer.getName(), name);
-			System.out.println("Computer id: " + id + "name: " + name);
-
 			computer.setId(id);
+			validateComputer(cols, computer);
 		}
+		if (rows.size() == 0) {
+			System.out.println("\nComputer " + computer.getName() + " is not found");
+		}
+	}
+
+	/**
+	 * Checks if the computer is the one we created
+	 */
+	public void validateComputer(Elements column, Computer computer) {
+		String name = column.get(0).getAllElements().get(0).child(0).html();
+		assert computer.getName().equals(name);
+		System.out.println("Computer was read with the same name: " + computer.getName() + "\n");
 	}
 }

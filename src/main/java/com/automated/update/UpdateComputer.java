@@ -15,25 +15,21 @@ public class UpdateComputer {
 		System.out.println("Update computers with the query: " + computer.getId());
 		
 		String endpoint = baseUrl + computer.getId();
-		System.out.println("Endpoint: " + endpoint);
 		modifyComputer(computer);
+		System.out.println("Update computer endpoint: " + endpoint +  ", " + computer.getName() +  "\n");
 		Document doc = Jsoup.connect(endpoint)
 				.data("name", computer.getName())
 				.data("introduced",computer.getIntroduced().toString())
 				.data("discontinued",computer.getDiscontinued().toString())
 				.data("company",computer.getCompany()+"")
 				.post();
-				System.out.println(doc);
-
 	}
 
-	public static Computer modifyComputer(Computer computer) {
-		// TODO Auto-generated method stub
-
-		computer.setCompany(2);
-		computer.setDiscontinued(LocalDate.of(1991, 07, 22));
-		computer.setIntroduced(LocalDate.of(1992, 06, 23));
-		computer.setName("Abc");
+	private Computer modifyComputer(Computer computer) {
+		computer.setCompany(3);
+		computer.setDiscontinued(LocalDate.of(2030, 07, 22));
+		computer.setIntroduced(LocalDate.of(2020, 06, 23));
+		computer.setName("Windows11Computer");
 
 		return computer;
 	}

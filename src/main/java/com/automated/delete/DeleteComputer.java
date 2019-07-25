@@ -13,9 +13,8 @@ public class DeleteComputer {
 
     public void deleteComputer(Computer computer) throws IOException {
         String endpoint = URL + computer.getId() + "/delete";
-        System.out.println("Calling delete endpoint: " +endpoint);
+        System.out.println("\nCalling delete endpoint: " +endpoint);
         Document doc = Jsoup.connect(endpoint).post();
-
     }
 
 }

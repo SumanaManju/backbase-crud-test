@@ -10,6 +10,13 @@ public class Computer {
     private LocalDate discontinued;
     private int company;
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -43,27 +50,16 @@ public class Computer {
         this.company = company;
     }
 
-    /**
-     * Prints this object in the application/x-www-form-urlencoded format
-     * @return
-     */
-    @Override
-    public String toString() {
-        return "name=" + name  +
-                "&introduced=" + introduced +
-                "&discontinued=" + discontinued +
-                "&company=" + company ;
-    }
-    
-//    public String toStringg() {
-//        return "id=" + id ;
+//    /**
+//     * Prints this object in the application/x-www-form-urlencoded format
+//     * @return
+//     */
+//    @Override
+//    public String toString() {
+//        return "name=" + name  +
+//                "&introduced=" + introduced +
+//                "&discontinued=" + discontinued +
+//                "&company=" + company ;
 //    }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 }
